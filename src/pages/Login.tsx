@@ -33,7 +33,7 @@ const Login: React.FC = () => {
     try {
       setStatus({ loading: true, error: false, errorText: '' });
       const credential = await auth.signInWithEmailAndPassword(email, password);
-      console.log('credential: ', credential);
+      setStatus({ loading: false, error: false, errorText: '' });
     } catch (error: any) {
       const code = error.code!;
       setStatus({ loading: false, error: true, errorText: firebaseErrorHandling(code) });
